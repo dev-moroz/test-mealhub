@@ -1,17 +1,21 @@
 <template>
-  <div class="container">
+  <div class="container" id="table-single">
     <template v-if="lists">
       <table>
         <tr>
           <th>id</th>
-          <th>name</th>
+          <td>{{ lists.id }}</td>
+         </tr>
+         <tr>
           <th>email</th>
-          <th>body</th>
+          <td>{{ lists.email }}</td>
         </tr>
         <tr>
-          <td>{{ lists.id }}</td>
+          <th>name</th>
           <td>{{ lists.name }}</td>
-          <td>{{ lists.email }}</td>
+         </tr>
+         <tr>
+          <th>body</th>
           <td>{{ lists.body }}</td>
         </tr>
       </table>
@@ -41,5 +45,18 @@ export default {
   display: flex;
   justify-content: center;
   max-width: 100px;
+}
+tr:first-child th{
+   border-top-left-radius: 10px;
+}
+tr:last-child th{
+   border-bottom-left-radius: 10px;
+}
+
+tr:first-child td{
+   border-top-right-radius: 10px;
+}
+tr:last-child td{
+   border-bottom-right-radius: 10px;
 }
 </style>

@@ -62,6 +62,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 0;
 }
 ul > li {
   margin: 5px;

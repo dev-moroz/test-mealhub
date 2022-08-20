@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <template v-if="listLength" style="width: 100%">
-      <table>
-        <tr>
+      <table id="table-lists">
+        <tr id="head">
           <th id="sort" @click="sortById()">id <span>sort</span></th>
           <th>name</th>
           <th>email</th>
         </tr>
         <tr v-for="(item, i) in partList" :key="i">
-          <td class="sort">{{ item.id }}</td>
+          <td class="sort"><strong class="mobile-head">id: </strong> {{ item.id }}</td>
           <td>
-            <NuxtLink :to="`/${item.id}`">{{ item.name }}</NuxtLink>
+            <NuxtLink :to="`/${item.id}`"><strong class="mobile-head">name: </strong> {{ item.name }}</NuxtLink>
           </td>
-          <td>{{ item.email }}</td>
+          <td><strong class="mobile-head">email: </strong> {{ item.email }}</td>
         </tr>
       </table>
 
@@ -64,7 +64,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #sort span {
   font-size: 12px;
   color: gray;
@@ -74,7 +74,29 @@ export default {
   cursor: pointer;
 }
 
-.sort {
-  text-align: center;
+th:first-child {
+  border-top-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+  border-right: none;
+}
+
+tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+@media screen and (max-width: 720px) {
+  tr:last-child td:first-child {
+    border-radius: 0;
+  }
+
+  tr:last-child td:last-child {
+    border-radius: 0;
+  }
 }
 </style>

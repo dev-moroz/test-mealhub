@@ -1,5 +1,5 @@
 <template>
-     <TableItem :lists="countComment"/>
+     <TableSingle :lists="countComment"/>
 </template>
 
 <script>
